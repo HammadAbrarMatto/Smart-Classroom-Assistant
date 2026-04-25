@@ -1,0 +1,30 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual Environment
+venv/
+.env
+
+# Streamlit cache
+.streamlit/
+
+# Logs
+*.log
+
+# OS files
+desktop.ini
+.DS_Store
+
+# Audio / temp files
+*.wav
+*.mp3
+
+# Large / unnecessary files
+*.pt
+*.pth
+
+# IDE
+.vscode/
+.idea/
