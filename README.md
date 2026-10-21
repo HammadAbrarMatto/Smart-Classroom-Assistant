@@ -98,6 +98,10 @@ streamlit run app.py
 
 ---
 
+## ✅ Live check
+
+`python scripts/live_check.py` calls the real services: Google Translate (including a Tamil → English source-language check), gTTS, web fetching, a speech round-trip (gTTS audio → Whisper) and every Gemini feature. It prints PASS / FAIL / SKIP for each.
+
 ## 🧪 Tests
 
 ```bash
