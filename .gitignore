@@ -1,30 +1,15 @@
-# Python cache
 __pycache__/
-*.pyc
-*.pyo
-
-# Virtual Environment
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
 venv/
+.venv/
 .env
-
-# Streamlit cache
-.streamlit/
-
-# Logs
+.streamlit/secrets.toml
 *.log
-
-# OS files
-desktop.ini
-.DS_Store
-
-# Audio / temp files
 *.wav
 *.mp3
-
-# Large / unnecessary files
-*.pt
-*.pth
-
-# IDE
+.DS_Store
+desktop.ini
 .vscode/
 .idea/

@@ -1,13 +1,25 @@
-streamlit>=1.32.0
-streamlit-autorefresh>=0.0.1
-SpeechRecognition>=3.10.0
+# UI
+streamlit>=1.50
+
+# Speech (mic). On Windows PyAudio installs from wheels; on Linux: sudo apt install portaudio19-dev
+SpeechRecognition>=3.10
 pyaudio>=0.2.14
-numpy>=1.26.0
-noisereduce>=3.0.0
+numpy>=1.26
+noisereduce>=3.0          # optional noise suppression
+
+# Offline transcription of recordings (optional, CPU-friendly)
+faster-whisper>=1.1
+
+# Language + AI
 deep-translator>=1.11.4
-nltk>=3.8.1
-requests>=2.31.0
-beautifulsoup4>=4.12.0
-pdfplumber>=0.10.0
-python-docx>=1.1.0
-gTTS>=2.5.0
+gTTS>=2.5
+google-genai>=1.0          # Gemini (optional: only used when GEMINI_API_KEY is set)
+pydantic>=2.6
+
+# Content extraction
+requests>=2.31
+beautifulsoup4>=4.12
+pdfplumber>=0.11
+python-docx>=1.1
+
+python-dotenv>=1.0
