@@ -154,3 +154,9 @@ def test_llm_handles_api_errors(monkeypatch):
 def test_markdown_export():
     md = to_markdown([Entry("🎙️ Hindi", "नमस्ते", "Hello"), Entry("✏️ Typed", "Same", "Same")])
     assert md.startswith("# Class notes") and "Hello" in md and md.count("<details>") == 1
+
+
+def test_split_keeps_complete_sentences():
+    parts = rules.shorten_sentence("Plants use light from the sun to make their own food in the leaves every single "
+                                   "day, which releases oxygen into the air around us.")
+    assert parts[1].startswith("This releases oxygen")

@@ -21,7 +21,9 @@ _PATTERNS = [
     (re.compile(rf"\b{re.escape(k)}\b", re.IGNORECASE), v)
     for k, v in sorted(SIMPLE_WORDS.items(), key=lambda kv: -len(kv[0]))
 ]
-_BREAKS = (", which", ", that", ", because", ", although", ", while", "; ", ", and", ", but", ", so")
+# break point -> how the new sentence starts (keeps it a complete sentence)
+_BREAKS = {", which": "This", ", that": "This", ", because": "This is because", ", although": "However,",
+           ", while": "Meanwhile,", "; ": "", ", and": "", ", but": "But", ", so": "So"}
 
 
 def _match_case(src: str, repl: str) -> str:
@@ -42,12 +44,12 @@ def shorten_sentence(sentence: str, max_words: int = 20) -> list[str]:
     """Split a long sentence at a natural break instead of throwing half of it away."""
     if len(sentence.split()) <= max_words:
         return [sentence]
-    for delim in _BREAKS:
+    for delim, lead in _BREAKS.items():
         if delim in sentence:
             head, tail = sentence.split(delim, 1)
             head = head.strip().rstrip(",;") + "."
             tail = tail.strip()
-            tail = tail[:1].upper() + tail[1:]
+            tail = f"{lead} {tail}" if lead else tail[:1].upper() + tail[1:]
             return [head, *shorten_sentence(tail, max_words)]
     return [sentence]
 
